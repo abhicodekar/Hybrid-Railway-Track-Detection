@@ -35,6 +35,7 @@ The system processes video feeds or image frames from front-facing train cameras
 
 ### Project Structure
 
+```text
 hybrid-railway-track-detection/
 ├── datasets/             # Training and validation images
 ├── models/               # Saved weights (.pt / .h5 files)
