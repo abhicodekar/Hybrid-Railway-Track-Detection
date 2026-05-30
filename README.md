@@ -17,25 +17,24 @@ A Python-based computer vision and deep learning system designed to enhance rail
 
 The system processes video feeds or image frames from front-facing train cameras through a multi-stage pipeline:
 
-1. **Preprocessing**: Frames are resized, denoised (using Gaussian Blur), and converted to grayscale/HSV color spaces to handle varying lighting conditions.
-2. **Track Segmentation (U-Net)**: A Deep Learning U-Net architecture segments the exact region of the railway tracks from the background.
-3. **Line Fitting (Hough Transform)**: Traditional computer vision (Canny Edge Detection + Probabilistic Hough Line Transform) fits precise straight/curved lines on the segmented tracks for geometry alignment.
-4. **Obstacle & Defect Detection (YOLOv8)**: A concurrent pipeline runs YOLOv8 to detect foreign objects (humans, animals, vehicles) and structural defects (cracks, missing clips) on the path.
-5. **Decision & Alert Logic**: If an obstacle or track break is detected within the safe braking distance zone, the system triggers a high-priority visual/acoustic warning overlay.
+1. Preprocessing: Frames are resized, denoised (using Gaussian Blur), and converted to grayscale/HSV color spaces to handle varying lighting conditions.
+2. Track Segmentation (U-Net): A Deep Learning U-Net architecture segments the exact region of the railway tracks from the background.
+3. Line Fitting (Hough Transform): Traditional computer vision (Canny Edge Detection + Probabilistic Hough Line Transform) fits precise straight/curved lines on the segmented tracks for geometry alignment.
+4. Obstacle & Defect Detection (YOLOv8): A concurrent pipeline runs YOLOv8 to detect foreign objects (humans, animals, vehicles) and structural defects (cracks, missing clips) on the path.
+5. Decision & Alert Logic: If an obstacle or track break is detected within the safe braking distance zone, the system triggers a high-priority visual/acoustic warning overlay.
 
 ---
 
 ### Tech Stack
 
-* **Language**: Python
-* **Core Libraries**: OpenCV, PyTorch, TensorFlow, NumPy, SciPy, Matplotlib
-* **Models Used**: YOLOv8 (for obstacle detection), Custom CNN / U-Net (for track segmentation)
+* Language: Python
+* Core Libraries: OpenCV, PyTorch, TensorFlow, NumPy, SciPy, Matplotlib
+* Models Used: YOLOv8 (for obstacle detection), Custom CNN / U-Net (for track segmentation)
 
 ---
 
 ### Project Structure
 
-```text
 hybrid-railway-track-detection/
 ├── datasets/             # Training and validation images
 ├── models/               # Saved weights (.pt / .h5 files)
@@ -46,3 +45,24 @@ hybrid-railway-track-detection/
 ├── main.py               # Main application entry point
 ├── requirements.txt      # Project dependencies
 └── README.md             # Project documentation
+
+---
+
+### Installation and Usage
+
+1. Clone the repository:
+   git clone [https://github.com/abhicodekar/hybrid-railway-track-detection.git](https://github.com/abhicodekar/hybrid-railway-track-detection.git)
+   cd hybrid-railway-track-detection
+
+2. Install dependencies:
+   pip install opencv-python torch torchvision numpy scipy matplotlib
+
+3. Run the application:
+   python main.py
+
+---
+
+### Future Enhancements
+* Integrating thermal camera feeds for nighttime and zero-visibility operations.
+* Deploying the pipeline onto edge devices like NVIDIA Jetson Nano for onboard real-time testing.
+*
